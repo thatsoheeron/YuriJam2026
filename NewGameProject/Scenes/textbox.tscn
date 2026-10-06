@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://cwhyy7038f1ur"]
+
+[ext_resource type="Script" uid="uid://cvuk4goalumcj" path="res://Scripts/textbox.gd" id="1_vng66"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_us7u2"]
+bg_color = Color(0.186459, 0.18645903, 0.18645892, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Animation" id="Animation_us7u2"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(550, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_vng66"]
+resource_name = "textbox_slidein"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 3),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.125, 0, 0.125, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 3),
+"points": PackedFloat32Array(550, -0.25, 0, 0.25, 0, 415, -0.125, 33.75, 0.125, -33.75),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_ptcjm"]
+resource_name = "textbox_slideout"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.083333336, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(415, -0.25, 0, 0.25, 0, 550, -0.083333336, -22.5, 0, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4fg7c"]
+_data = {
+&"RESET": SubResource("Animation_us7u2"),
+&"textbox_slidein": SubResource("Animation_vng66"),
+&"textbox_slideout": SubResource("Animation_ptcjm")
+}
+
+[node name="textbox" type="Control" unique_id=1068216623]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vng66")
+metadata/_edit_vertical_guides_ = [130.0]
+
+[node name="Panel" type="Panel" parent="." unique_id=1256978695]
+layout_mode = 0
+offset_top = 550.0
+offset_right = 960.0
+offset_bottom = 674.99915
+theme_override_styles/panel = SubResource("StyleBoxFlat_us7u2")
+
+[node name="text_dialogue" type="RichTextLabel" parent="Panel" unique_id=1136453002]
+visible = false
+layout_mode = 0
+offset_left = 134.0
+offset_top = 4.0
+offset_right = 956.0
+offset_bottom = 121.0
+text = "lorem ipsum dolor sit"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2032001261]
+libraries/ = SubResource("AnimationLibrary_4fg7c")
