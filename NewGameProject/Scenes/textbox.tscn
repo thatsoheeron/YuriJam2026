@@ -101,7 +101,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vng66")
-metadata/_edit_vertical_guides_ = [130.0]
 
 [node name="Panel" type="Panel" parent="." unique_id=1256978695]
 layout_mode = 0
