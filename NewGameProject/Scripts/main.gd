@@ -1,63 +1,46 @@
 extends Node2D
 
-const textbox = preload("res://Scenes/textbox.tscn")
-const characters = preload("res://Scenes/characters.tscn")
+var characters = null
+var textbox = null
 
-var characters_on = false
+var left = "left"
+var mid = "mid"
+var right = "right"
 
-var textbox_instance = textbox.instantiate()
-var characters_instance = characters.instantiate()
+func char_enter(text_int: int, pos: String, dir: String):
+	if is_instance_valid(textbox) and textbox.i == text_int:
+		Globals.char_enter(characters, pos, dir)
 
-func add_textbox():
-	add_child(textbox_instance)
+func char_exit(text_int: int, pos: String, dir: String):
+	if is_instance_valid(textbox) and text_int == 0:
+		Globals.char_exit(characters, pos, dir)
+	else:
+		if is_instance_valid(textbox) and textbox.i == text_int:
+			Globals.char_exit(characters, pos, dir)
 
-func add_characters():
-	add_child(characters_instance)
+func char_move(text_int: int, pos: String, dir: String):
+	if is_instance_valid(textbox) and textbox.i == text_int:
+		Globals.char_move(characters, pos, dir)
 
-func set_dialogue(param):
-	Globals.current_dialogue = param
-	add_textbox()
+func change_expression(text_int: int, pos: String, express: String):
+	if is_instance_valid(textbox) and textbox.i == text_int and Globals.expression_changed == false:
+		Globals.change_expression(pos, express)
+		Globals.expression_changed = true
 
-func chars_enter(number: int,
-	char1_pos: String,
-	char2_pos: String,
-	char1_emotion: String, 
-	char2_emotion: String, 
-	char3_emotion: String,
-	direction: String):
-	
-	characters_on = true
-	
-	if number == 1:
-		characters_instance.one_char_anim(char1_pos, char1_emotion, "on", direction)
-	elif number == 2:
-		characters_instance.two_chars_anim(char1_pos, char2_pos, char1_emotion, char2_emotion, "on", direction)
-	elif number == 3:
-		characters_instance.all_chars_anim(char1_emotion, char2_emotion, char3_emotion, "on", direction)
+func change_dialogue(text_int: int, param):
+	if is_instance_valid(textbox) and textbox.i == text_int:
+		Globals.change_current_speaker(param)
+		Globals.current_dialogue = param["dialogue"]
+		textbox.array_int = 0
 
-func chars_exit(number: int,
-	char1_pos: String,
-	char2_pos: String,
-	char1_emotion: String,
-	char2_emotion: String,
-	char3_emotion: String,
-	direction: String):
-	
-	if number == 1:
-		characters_instance.one_char_anim(char1_pos, char1_emotion, "off", direction)
-	elif number == 2:
-		characters_instance.two_chars_anim(char1_pos, char2_pos, char1_emotion, char2_emotion, "off", direction)
-	elif number == 3:
-		characters_instance.all_chars_anim(char1_emotion, char2_emotion, char3_emotion, "off", direction)
-	characters_on = false
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	add_characters()
-	chars_enter(1, "mid", "", "happy", "", "", "left")
-	set_dialogue(Dialogue.opening_text)
+	characters = Globals.chara.instantiate()
+	textbox = Globals.text.instantiate()
+	add_child(characters)
+	add_child(textbox)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if !is_instance_valid(textbox_instance) and characters_on == true:
-		chars_exit(1, "mid", "", "sad", "", "", "left")
+	change_dialogue(0, Dialogue.narration_1)
+	change_expression(0, mid, "FemContent")
+	char_enter(0, mid, left)

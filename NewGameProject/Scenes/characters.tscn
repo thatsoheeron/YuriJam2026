@@ -2,12 +2,53 @@
 
 [ext_resource type="Script" uid="uid://de5qxpeu8g5wb" path="res://Scenes/characters.gd" id="1_hs1m0"]
 [ext_resource type="Texture2D" uid="uid://jcphoag73674" path="res://Assets/CustomerHappy.png" id="1_uwqtg"]
+[ext_resource type="Texture2D" uid="uid://cko0u2dqmtgot" path="res://Assets/FemContent.png" id="2_pf2oa"]
+[ext_resource type="Texture2D" uid="uid://c7p8sl3dehedc" path="res://Assets/FemContentBlink1.png" id="3_hbw4s"]
 [ext_resource type="Texture2D" uid="uid://3nn2l1h4grk5" path="res://Assets/CustomerMad.png" id="3_sxmeh"]
 [ext_resource type="Texture2D" uid="uid://c3hjwwxwbg1n0" path="res://Assets/CustomerNeutral.png" id="4_42xpr"]
 [ext_resource type="Texture2D" uid="uid://c2hruf5x4arc3" path="res://Assets/CustomerSad.png" id="5_nheoh"]
+[ext_resource type="Texture2D" uid="uid://chuxkrtesflq" path="res://Assets/FemContentBlink3.png" id="5_xnhol"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aw5qw"]
 animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("2_pf2oa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hbw4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xnhol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hbw4s")
+}, {
+"duration": 10.0,
+"texture": ExtResource("2_pf2oa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hbw4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xnhol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hbw4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xnhol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hbw4s")
+}, {
+"duration": 10.0,
+"texture": ExtResource("2_pf2oa")
+}],
+"loop": 1,
+"name": &"FemContent",
+"speed": 9.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_uwqtg")
@@ -44,6 +85,44 @@ animations = [{
 [sub_resource type="SpriteFrames" id="SpriteFrames_c4m2p"]
 animations = [{
 "frames": [{
+"duration": 10.0,
+"texture": ExtResource("2_pf2oa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hbw4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xnhol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hbw4s")
+}, {
+"duration": 10.0,
+"texture": ExtResource("2_pf2oa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hbw4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xnhol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hbw4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xnhol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hbw4s")
+}, {
+"duration": 10.0,
+"texture": ExtResource("2_pf2oa")
+}],
+"loop": 1,
+"name": &"FemContent",
+"speed": 9.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_uwqtg")
 }],
@@ -78,6 +157,44 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uwqtg"]
 animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("2_pf2oa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hbw4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xnhol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hbw4s")
+}, {
+"duration": 10.0,
+"texture": ExtResource("2_pf2oa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hbw4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xnhol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hbw4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xnhol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hbw4s")
+}, {
+"duration": 10.0,
+"texture": ExtResource("2_pf2oa")
+}],
+"loop": 1,
+"name": &"FemContent",
+"speed": 9.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_uwqtg")
@@ -636,6 +753,60 @@ tracks/5/keys = {
 "values": [Vector2(1230, 270), Vector2(690, 270), Vector2(710, 270)]
 }
 
+[sub_resource type="Animation" id="Animation_q8iau"]
+resource_name = "left_char_movemid"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("left_char:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("left_char:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(0.5, -2, 2),
+"update": 0,
+"values": [Vector2(250, 270), Vector2(500, 270), Vector2(480, 270)]
+}
+
+[sub_resource type="Animation" id="Animation_ul2am"]
+resource_name = "left_char_moveright"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("left_char:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("left_char:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(0.5, -2, 2),
+"update": 0,
+"values": [Vector2(250, 270), Vector2(710, 270), Vector2(690, 270)]
+}
+
 [sub_resource type="Animation" id="Animation_42xpr"]
 resource_name = "left_char_slideoffleft"
 tracks/0/type = "value"
@@ -744,6 +915,60 @@ tracks/1/keys = {
 "values": [Vector2(1230, 270), Vector2(230, 270), Vector2(250, 270)]
 }
 
+[sub_resource type="Animation" id="Animation_cxuc1"]
+resource_name = "mid_char_moveleft"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mid_char:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mid_char:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(0.5, -2, 2),
+"update": 0,
+"values": [Vector2(480, 270), Vector2(230, 270), Vector2(250, 270)]
+}
+
+[sub_resource type="Animation" id="Animation_jusnc"]
+resource_name = "mid_char_moveright"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mid_char:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mid_char:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(0.5, -2, 2),
+"update": 0,
+"values": [Vector2(480, 270), Vector2(730, 270), Vector2(710, 270)]
+}
+
 [sub_resource type="Animation" id="Animation_ejwxu"]
 resource_name = "one_char_slideout"
 tracks/0/type = "value"
@@ -850,6 +1075,60 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lvxoh"]
+resource_name = "right_char_moveleft"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("right_char:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("right_char:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(0.5, -2, 2),
+"update": 0,
+"values": [Vector2(710, 270), Vector2(230, 270), Vector2(250, 270)]
+}
+
+[sub_resource type="Animation" id="Animation_t1dmr"]
+resource_name = "right_char_movemid"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("right_char:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("right_char:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(0.5, -2, 2),
+"update": 0,
+"values": [Vector2(710, 270), Vector2(460, 270), Vector2(480, 270)]
 }
 
 [sub_resource type="Animation" id="Animation_ivwoi"]
@@ -1887,14 +2166,20 @@ _data = {
 &"allchar_slideon": SubResource("Animation_3mpvu"),
 &"allchar_slideonleft": SubResource("Animation_3v7xy"),
 &"allchar_slideonright": SubResource("Animation_wt7fs"),
+&"left_char_movemid": SubResource("Animation_q8iau"),
+&"left_char_moveright": SubResource("Animation_ul2am"),
 &"left_char_slideoffleft": SubResource("Animation_42xpr"),
 &"left_char_slideoffright": SubResource("Animation_6fgi3"),
 &"left_char_slideonleft": SubResource("Animation_sxmeh"),
 &"left_char_slideonright": SubResource("Animation_l35eo"),
+&"mid_char_moveleft": SubResource("Animation_cxuc1"),
+&"mid_char_moveright": SubResource("Animation_jusnc"),
 &"mid_char_slideoffleft": SubResource("Animation_ejwxu"),
 &"mid_char_slideoffright": SubResource("Animation_nheoh"),
 &"mid_char_slideonleft": SubResource("Animation_hs1m0"),
 &"mid_char_slideonright": SubResource("Animation_m3khh"),
+&"right_char_moveleft": SubResource("Animation_lvxoh"),
+&"right_char_movemid": SubResource("Animation_t1dmr"),
 &"right_char_slideoffleft": SubResource("Animation_ivwoi"),
 &"right_char_slideoffright": SubResource("Animation_pf2oa"),
 &"right_char_slideonleft": SubResource("Animation_cn1iq"),
@@ -1925,23 +2210,36 @@ script = ExtResource("1_hs1m0")
 [node name="left_char" type="AnimatedSprite2D" parent="." unique_id=950702932]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(-270.00003, 270.00003)
-scale = Vector2(0.49999994, 0.49999994)
+scale = Vector2(0.18481785, 0.18481785)
 sprite_frames = SubResource("SpriteFrames_aw5qw")
-animation = &"sad"
+animation = &"FemContent"
+frame = 10
+frame_progress = 0.22050434
 
 [node name="mid_char" type="AnimatedSprite2D" parent="." unique_id=30753400]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(-270, 270)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.185, 0.185)
 sprite_frames = SubResource("SpriteFrames_c4m2p")
-animation = &"happy"
+animation = &"FemContent"
+frame_progress = 0.042797297
 
 [node name="right_char" type="AnimatedSprite2D" parent="." unique_id=1296293467]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(1230, 270)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.185, 0.185)
 sprite_frames = SubResource("SpriteFrames_uwqtg")
-animation = &"sad"
+animation = &"FemContent"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=705387798]
+[node name="left_char_anim" type="AnimationPlayer" parent="." unique_id=705387798]
 libraries/ = SubResource("AnimationLibrary_ejwxu")
+
+[node name="mid_char_anim" type="AnimationPlayer" parent="." unique_id=1072969038]
+libraries/ = SubResource("AnimationLibrary_ejwxu")
+
+[node name="right_char_anim" type="AnimationPlayer" parent="." unique_id=114999964]
+libraries/ = SubResource("AnimationLibrary_ejwxu")
+
+[connection signal="animation_changed" from="left_char" to="." method="_on_left_char_animation_changed"]
+[connection signal="animation_changed" from="mid_char" to="." method="_on_mid_char_animation_changed"]
+[connection signal="animation_changed" from="right_char" to="." method="_on_right_char_animation_changed"]
