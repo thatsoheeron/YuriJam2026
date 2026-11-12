@@ -4,7 +4,14 @@
 [ext_resource type="AnimationLibrary" uid="uid://b02mny4h4wcry" path="res://Animations/Nameplate.res" id="2_i40gg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_us7u2"]
-bg_color = Color(0.186459, 0.18645903, 0.18645892, 1)
+bg_color = Color(0.1882353, 0.1882353, 0.1882353, 0.78431374)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjgbg"]
+bg_color = Color(0.1882353, 0.1882353, 0.1882353, 0.78431374)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -44,6 +51,7 @@ offset_left = 100.0
 offset_top = -48.0
 offset_right = 250.00037
 offset_bottom = -8.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jjgbg")
 
 [node name="name" type="RichTextLabel" parent="Panel/nameplate" unique_id=1610847229]
 layout_mode = 0

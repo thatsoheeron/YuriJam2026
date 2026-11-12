@@ -82,7 +82,6 @@ func _process(_delta: float) -> void:
 	char_anim_change("mid", Globals.midchar_expression)
 	char_anim_change("right", Globals.rightchar_expression)
 
-
 func _on_left_char_animation_changed() -> void:
 	left_sprite.play(Globals.leftchar_expression)
 	expression_changed = true
