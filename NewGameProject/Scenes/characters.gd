@@ -19,6 +19,9 @@ var invisible = 0
 var fully_visible = 255
 
 var expression_changed = false
+var characterone_flipped = false
+var charactertwo_flipped = false
+var characterthree_flipped = false
 
 func char_check(character: String):
 	if character == "one":
@@ -40,12 +43,36 @@ func one_char_exit(character: String, dir: String, pos: String):
 
 func char_anim_change(character: String, express):
 	if character == "one":
-		one_sprite.animation = express
+		one_sprite.play(express)
 	elif character == "two":
-		two_sprite.animation = express
+		two_sprite.play(express)
 	elif character == "three":
-		three_sprite.animation = express
+		three_sprite.play(express)
 # Called when the node enters the scene tree for the first time.
+
+func flip_char(character: String):
+	if (character == "one"):
+		if (characterone_flipped == false):
+			one_sprite.flip_h = true
+			characterone_flipped = true
+		elif (characterone_flipped == true):
+			one_sprite.flip_h = false
+			characterone_flipped = false
+	elif (character == "two"):
+		if (charactertwo_flipped == false):
+			two_sprite.flip_h = true
+			charactertwo_flipped = true
+		elif (charactertwo_flipped == true):
+			two_sprite.flip_h = false
+			charactertwo_flipped = false
+	elif (character == "three"):
+		if (characterthree_flipped == false):
+			three_sprite.flip_h = true
+			characterthree_flipped = true
+		elif (characterthree_flipped == true):
+			three_sprite.flip_h = false
+			characterthree_flipped = false
+
 func _ready() -> void:
 	pass
 

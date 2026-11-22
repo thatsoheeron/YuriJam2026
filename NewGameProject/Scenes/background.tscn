@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bgu2rm2brvh0p"]
+
+[ext_resource type="Script" uid="uid://pypct3weq2g3" path="res://Scenes/background.gd" id="1_sn1xx"]
+
+[sub_resource type="Gradient" id="Gradient_pojwb"]
+colors = PackedColorArray(0.5442685, 0.8094674, 1, 1, 0.6163554, 0.3900353, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_am4vs"]
+gradient = SubResource("Gradient_pojwb")
+
+[sub_resource type="Gradient" id="Gradient_am4vs"]
+colors = PackedColorArray(0.93, 0.756245, 0.38130003, 1, 0.6790145, 2.815649e-06, 5.7756904e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wumei"]
+gradient = SubResource("Gradient_am4vs")
+
+[node name="Node2D" type="Node2D" unique_id=876450871]
+script = ExtResource("1_sn1xx")
+
+[node name="Bottom_Background" type="TextureRect" parent="." unique_id=2077457237]
+offset_left = -5.0
+offset_top = -7.0
+offset_right = 967.0
+offset_bottom = 547.0
+texture = SubResource("GradientTexture1D_am4vs")
+
+[node name="Top_Background" type="TextureRect" parent="." unique_id=984147816]
+offset_left = -5.0
+offset_top = -7.0
+offset_right = 967.0
+offset_bottom = 547.0
+texture = SubResource("GradientTexture1D_wumei")

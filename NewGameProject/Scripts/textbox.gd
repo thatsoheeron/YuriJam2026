@@ -41,10 +41,13 @@ func next_text():
 		print(i)
 		nameplate_round = false
 		dialogue_printed = false
-		Globals.leftchar_moved = false
-		Globals.midchar_moved = false
-		Globals.rightchar_moved = false
-		Globals.expression_changed = false
+		Globals.onechar_moved = false
+		Globals.twochar_moved = false
+		Globals.threechar_moved = false
+		Globals.one_expression_changed = false
+		Globals.two_expression_changed = false
+		Globals.three_expression_changed = false
+		Globals.character_flipped = false
 		text_dialogue.visible_ratio = 0
 		timer_done = false
 		timer.start()

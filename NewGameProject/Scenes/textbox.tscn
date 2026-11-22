@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cwhyy7038f1ur"]
 
 [ext_resource type="Script" uid="uid://cvuk4goalumcj" path="res://Scripts/textbox.gd" id="1_vng66"]
-[ext_resource type="AnimationLibrary" uid="uid://b02mny4h4wcry" path="res://Animations/Nameplate.res" id="2_i40gg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_us7u2"]
 bg_color = Color(0.1882353, 0.1882353, 0.1882353, 0.78431374)
@@ -17,6 +16,60 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="Animation" id="Animation_psw4q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 600.22)]
+}
+
+[sub_resource type="Animation" id="Animation_i40gg"]
+resource_name = "textbox_slidein"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 600.22), Vector2(0, 420)]
+}
+
+[sub_resource type="Animation" id="Animation_yyjux"]
+resource_name = "textbox_slideout"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 420), Vector2(0, 600.22)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yyjux"]
+_data = {
+&"RESET": SubResource("Animation_psw4q"),
+&"textbox_slidein": SubResource("Animation_i40gg"),
+&"textbox_slideout": SubResource("Animation_yyjux")
+}
+
 [node name="textbox" type="Control" unique_id=1068216623]
 layout_mode = 3
 anchors_preset = 15
@@ -31,7 +84,7 @@ metadata/_edit_vertical_guides_ = [480.0, 250.0, 708.0, 100.0, 860.0]
 layout_mode = 0
 offset_top = 600.22
 offset_right = 960.0
-offset_bottom = 725.2188
+offset_bottom = 725.2192
 theme_override_styles/panel = SubResource("StyleBoxFlat_us7u2")
 
 [node name="text_dialogue" type="RichTextLabel" parent="Panel" unique_id=1136453002]
@@ -70,10 +123,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="textbox" type="AnimationPlayer" parent="." unique_id=2032001261]
-libraries/ = ExtResource("2_i40gg")
+libraries/ = SubResource("AnimationLibrary_yyjux")
 
 [node name="nameplate" type="AnimationPlayer" parent="." unique_id=2008484835]
-libraries/Nameplate = ExtResource("2_i40gg")
 
 [node name="Timer" type="Timer" parent="." unique_id=2083592980]
 

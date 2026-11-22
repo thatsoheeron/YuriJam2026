@@ -21,7 +21,15 @@ var threechar_onscreen = false
 var onechar_expression = "neutral"
 var twochar_expression = "neutral"
 var threechar_expression = "neutral"
-var expression_changed = false
+var one_expression_changed = false
+var two_expression_changed = false
+var three_expression_changed = false
+
+var character_flipped = false
+
+var characterone = "one/"
+var charactertwo = "two/"
+var characterthree = "three/"
 
 var current_speaker = ""
 
@@ -31,14 +39,17 @@ func change_current_speaker(param):
 func char_enter(instance, character: String, dir: String, pos: String):
 	var animation = dir + "_slideon_" + pos
 	if character == "one" and onechar_onscreen == false:
+		animation = characterone + animation
 		instance.onechar_anim.play(animation)
 		await instance.onechar_anim.animation_finished
 		onechar_onscreen = true
 	elif character == "two" and twochar_onscreen == false:
+		animation = charactertwo + animation
 		instance.twochar_anim.play(animation)
 		await instance.twochar_anim.animation_finished
 		twochar_onscreen = true
 	elif character == "three" and threechar_onscreen == false:
+		animation = characterthree + animation
 		instance.threechar_anim.play(animation)
 		await instance.threechar_anim.animation_finished
 		threechar_onscreen = true
@@ -46,40 +57,53 @@ func char_enter(instance, character: String, dir: String, pos: String):
 func char_exit(instance, character: String, dir: String, pos: String):
 	var animation = dir + "_slideoff_" + pos
 	if character == "one" and onechar_onscreen == true:
+		animation = characterone + animation
 		instance.onechar_anim.play(animation)
 		await instance.onechar_anim.animation_finished
 		onechar_onscreen = false
 	elif character == "two" and twochar_onscreen == true:
+		animation = charactertwo + animation
 		instance.twochar_anim.play(animation)
 		await instance.twochar_anim.animation_finished
 		twochar_onscreen = false
 	elif character == "three" and threechar_onscreen == true:
+		animation = characterthree + animation
 		instance.threechar_anim.play(animation)
 		await instance.threechar_anim.animation_finished
 		threechar_onscreen = false
 
-func char_move(instance, character: String, dir: String):
-	var animation = character + "_char_move" + dir
+func char_move(instance, character: String, startpos: String, endpos: String):
+	var animation = startpos + "_move_" + endpos
 	if character == "one" and onechar_onscreen == true and onechar_moved == false:
+		animation = characterone + animation
 		instance.onechar_anim.play(animation)
 		await instance.onechar_anim.animation_finished
 		onechar_moved = true
 	elif character == "two" and twochar_onscreen == true and twochar_moved == false:
+		animation = charactertwo + animation
 		instance.twochar_anim.play(animation)
 		await instance.twochar_anim.animation_finished
 		twochar_moved = true
 	elif character == "three" and threechar_onscreen == true and threechar_moved == false:
+		animation = characterthree + animation
 		instance.threechar_anim.play(animation)
 		await instance.threechar_anim.animation_finished
 		threechar_moved = true
 
+func flip_char(instance, character: String):
+	instance.flip_char(character)
+
+
 func change_expression(character: String, express: String):
-	if character == "one":
+	if character == "one" and one_expression_changed == false:
 		onechar_expression = express
-	elif character == "two":
+		one_expression_changed = true
+	elif character == "two" and two_expression_changed == false:
 		twochar_expression = express
-	elif character == "three":
+		two_expression_changed = true
+	elif character == "three" and three_expression_changed == false:
 		threechar_expression = express
+		three_expression_changed = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -16,25 +16,24 @@ var fem = ""
 var butch = ""
 var shittyguy = ""
 
-func char_enter(character: String, dir: String, express: String):
+func char_enter(character: String, dir: String, express: String, pos: String):
 	if is_instance_valid(textbox):
 		change_expression(character, express)
-		Globals.char_enter(characters, character, dir)
+		Globals.char_enter(characters, character, dir, pos)
 
-func char_exit(character: String, dir: String, express: String):
+func char_exit(character: String, dir: String, express: String, pos: String):
 	if is_instance_valid(textbox):
 		change_expression(character, express)
-		Globals.char_exit(characters, character, dir)
+		Globals.char_exit(characters, character, dir, pos)
 
-func char_move(character: String, dir: String, express: String):
+func char_move(character: String, express: String, startpos: String, endpos: String):
 	if is_instance_valid(textbox):
 		change_expression(character, express)
-		Globals.char_move(characters, character, dir)
+		Globals.char_move(characters, character, startpos, endpos)
 
-func change_expression(pos: String, express: String):
-	if is_instance_valid(textbox) and Globals.expression_changed == false:
-		Globals.change_expression(pos, express)
-		Globals.expression_changed = true
+func change_expression(character: String, express: String):
+	if is_instance_valid(textbox):
+		Globals.change_expression(character, express)
 
 func change_dialogue(param):
 	if is_instance_valid(textbox):
@@ -42,22 +41,27 @@ func change_dialogue(param):
 		Globals.current_dialogue = param["dialogue"]
 		textbox.array_int = 0
 
-func change_dialogue_enter(param, character: String, dir: String, express: String):
+func flip_char(character: String):
+	if is_instance_valid(characters) and Globals.character_flipped == false:
+		Globals.flip_char(characters, character)
+		Globals.character_flipped = true
+
+func change_dialogue_enter(param, character: String, dir: String, express: String, pos: String):
 	text_int = textbox.i
 	if is_instance_valid(textbox):
 		change_dialogue(param)
-		char_enter(character, dir, express)
+		char_enter(character, dir, express, pos)
 
-func change_dialogue_exit(param, character: String, dir: String, express: String):
+func change_dialogue_exit(param, character: String, dir: String, express: String, pos: String):
 	if is_instance_valid(textbox):
 		change_expression(character, express)
 		change_dialogue(param)
-		char_exit(character, dir, express)
+		char_exit(character, dir, express, pos)
 
-func change_dialogue_charchange(param, character: String, dir: String, express: String):
+func change_dialogue_charchange(param, character: String, express: String, startpos: String, endpos: String):
 	if is_instance_valid(textbox):
 		change_expression(character, express)
-		char_move(character, dir, express)
+		char_move(character, express, startpos, endpos)
 		change_dialogue(param)
 
 func change_dialogue_expression(param, character, express):
@@ -76,10 +80,18 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	char_enter(butch, left, "neutral")
-	char_enter(fem, right, "neutral")
-	char_enter(shittyguy, right, "neutral")
-
+	
+	text_int = textbox.i
+	
+	if (text_int == 1):
+		char_enter(butch, left, "FemContent", mid)
+	elif (text_int == 2):
+		char_move(butch, "FemContent", mid, right)
+		char_enter(fem, left, "neutral", left)
+	elif (text_int == 3):
+		flip_char(butch)
+	elif (text_int == 4):
+		flip_char(butch)
 #	text_int = textbox.i
 #	if (text_int == 0):
 #		change_dialogue(Dialogue.narration_1)
