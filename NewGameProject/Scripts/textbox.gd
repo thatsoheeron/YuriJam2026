@@ -48,6 +48,7 @@ func next_text():
 		Globals.two_expression_changed = false
 		Globals.three_expression_changed = false
 		Globals.character_flipped = false
+		Globals.background_changed = false
 		text_dialogue.visible_ratio = 0
 		timer_done = false
 		timer.start()

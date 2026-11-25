@@ -2,6 +2,7 @@ extends Node
 
 @onready var chara = preload("res://Scenes/characters.tscn")
 @onready var text = preload("res://Scenes/textbox.tscn")
+@onready var background = preload("res://Scenes/background.tscn")
 
 var current_dialogue = [
 	"",
@@ -32,6 +33,8 @@ var charactertwo = "two/"
 var characterthree = "three/"
 
 var current_speaker = ""
+
+var background_changed = false
 
 func change_current_speaker(param):
 	current_speaker = param["current speaker"]
@@ -93,6 +96,16 @@ func char_move(instance, character: String, startpos: String, endpos: String):
 func flip_char(instance, character: String):
 	instance.flip_char(character)
 
+func assign_background(instance, top, bottom):
+	instance.bottom_background.texture = bottom
+	instance.top_background.texture = top
+
+func fade_background(instance, preload_next_scene):
+	if background_changed == false:
+		instance.fade_background(preload_next_scene)
+		background_changed = true
+	else:
+		pass
 
 func change_expression(character: String, express: String):
 	if character == "one" and one_expression_changed == false:

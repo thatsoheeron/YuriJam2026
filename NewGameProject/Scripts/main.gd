@@ -2,6 +2,7 @@ extends Node2D
 
 var characters = null
 var textbox = null
+var background = null
 var text_int = 0
 
 var one = "one"
@@ -15,6 +16,10 @@ var right = "right"
 var fem = ""
 var butch = ""
 var shittyguy = ""
+
+var background1 = preload("res://Assets/gradient1.png")
+var background2 = preload("res://Assets/gradient2.png")
+var background3 = preload("res://Assets/gradient3.png")
 
 func char_enter(character: String, dir: String, express: String, pos: String):
 	if is_instance_valid(textbox):
@@ -69,11 +74,18 @@ func change_dialogue_expression(param, character, express):
 		change_expression(character, express)
 		change_dialogue(param)
 
+func change_background(preload_next_scene):
+	if is_instance_valid(textbox) and Globals.background_changed == false:
+		Globals.fade_background(background, preload_next_scene)
+
 func _ready() -> void:
 	characters = Globals.chara.instantiate()
 	textbox = Globals.text.instantiate()
+	background = Globals.background.instantiate()
+	add_child(background)
 	add_child(characters)
 	add_child(textbox)
+	Globals.assign_background(background, background1, background2)
 	butch = one
 	fem = two
 	shittyguy = three
@@ -84,6 +96,7 @@ func _process(_delta: float) -> void:
 	text_int = textbox.i
 	
 	if (text_int == 1):
+		change_background(background3)
 		char_enter(butch, left, "FemContent", mid)
 	elif (text_int == 2):
 		char_move(butch, "FemContent", mid, right)
@@ -92,6 +105,10 @@ func _process(_delta: float) -> void:
 		flip_char(butch)
 	elif (text_int == 4):
 		flip_char(butch)
+	elif (text_int == 5):
+		change_background(background2)
+	elif (text_int == 6):
+		change_background(background1)
 #	text_int = textbox.i
 #	if (text_int == 0):
 #		change_dialogue(Dialogue.narration_1)
